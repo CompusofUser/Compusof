@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="..\css\estilosSesion.css">
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
-    <title>Login - Compusof</title>
+    <title>Inicio de Sesion - Compusof</title>
 </head>
 <body>
     <div class="container">
