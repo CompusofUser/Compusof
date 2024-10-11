@@ -1,0 +1,5 @@
+#Crear unica ruta de acceso
+Options -Multiviews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ ../view/usuarios/inicioSesion.php [QSA,L]
