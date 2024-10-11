@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <form method="POST">
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" placeholder="usuario@compusof.mx" required>
+                        <input type="email" id="email" pattern="[a-zA-Z0-9._%+-]+@compusof\.mx" placeholder="usuario@compusof.mx" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Contraseña:</label>
