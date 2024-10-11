@@ -57,8 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="email" name="email" placeholder="correo electrónico@compusof.mx" required>
-                    </div>
+                    <input type="email" id="email" pattern="[a-zA-Z0-9._%+-]+@compusof.mx" placeholder="usuario@compusof.mx" required name="email">
+                </div>
                     <div class="form-group">
                         <input type="tel" id="numeroTelefono" name="numeroTelefono" placeholder="telefono" required maxlength="10">
                     </div>
