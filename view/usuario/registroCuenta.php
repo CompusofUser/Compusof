@@ -1,5 +1,5 @@
 <?php
-require_once '..\validacion\auth.php';
+require_once 'auth.php';
 $isLogin = false;
 $message = '';
 
@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </form>
             </div>
             <div class="card-footer">
-                <a href= "..\usuario\inicioSesion.php" class="switch-form">¿Ya tienes cuenta? Inicia sesión</a>
+                <a href= "/compusof/index.php" class="switch-form">¿Ya tienes cuenta? Inicia sesión</a>
             </div>
         </div>
     </div>

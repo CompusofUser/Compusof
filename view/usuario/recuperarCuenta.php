@@ -1,6 +1,6 @@
 
 <?php
-require_once '../validacion/auth.php';
+require 'auth.php';
 $message = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -73,7 +73,7 @@ function validatePassword($password) {
                 </form>
             </div>
             <div class="card-footer">
-                <a href= "..\usuario\inicioSesion.php" class="switch-form">Volver al inicio de sesión</a>
+                <a href= "/compusof/index.php" class="switch-form">Volver al inicio de sesión</a>
             </div>
         </div>
     </div>
