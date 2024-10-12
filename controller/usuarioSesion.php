@@ -18,14 +18,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuario = new Usuarios();
     $resultado = $usuario->inicioSesion($email, $password);
 
-
-    if ($resultado === true) {
-        echo "Inicio de sesión exitoso.";
-        //NOta: aqui se colocara el dash cuando este listo
-    } else {
-       header("location:\compusof\index.php");
-       
-    }
 } else {
     echo "Acceso no autorizado.";
 }

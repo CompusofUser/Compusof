@@ -25,19 +25,19 @@ class Usuarios extends Conexion{
         $arrData = array($this->strNombre,$this->strApellidos,$this->strCorreo,$this->numeroTelefono,$this->password,$this->fechaNac,$this->genero);
         $resInsert = $insert->execute($arrData);
     }
-   public function inicioSesion($email, $password) {
-    $sql = "SELECT * FROM usuarios WHERE email = :email";
-    $select = $this->conexion->prepare($sql);
-    $select->execute(array("email" => $email));
-    
-    $resultado = $select->fetch(PDO::FETCH_ASSOC);
-    
-    if ($resultado && password_verify($password, $resultado['password'])) {
-        session_start();
-        $_SESSION["email"] = $email;
-        echo "Inicio de sesión exitoso. Hola " . htmlspecialchars($email);
-    } else {
-        echo "Email o contraseña incorrectos";
-    }
-}
+    public function inicioSesion($email, $password) {
+      $sql = "SELECT * FROM usuarios WHERE email = :email";
+      $select = $this->conexion->prepare($sql);
+      $select->execute(array("email" => $email));
+      
+      $resultado = $select->fetch(PDO::FETCH_ASSOC);
+      
+      if ($resultado && password_verify($password, $resultado['password'])) {
+          session_start();
+          $_SESSION["email"] = $email;
+          echo "Inicio de sesión exitoso. Hola " . htmlspecialchars($email);
+      } else {
+          echo "Email o contraseña incorrectos";
+      }
+  }
 }
