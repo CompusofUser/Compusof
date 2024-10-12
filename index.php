@@ -36,10 +36,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h2>Login</h2>
             </div>
             <div class="card-content">
-                <form method="POST">
+                <form method="POST" action="..\compusof\controller\usuarioSesion.php">
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" pattern="[a-zA-Z0-9._%+-]+@compusof\.mx" placeholder="usuario@compusof.mx" required>
+                        <input type="email" id="email" pattern="[a-zA-Z0-9._%+-]+@compusof\.mx" placeholder="usuario@compusof.mx" required name="email">
                     </div>
                     <div class="form-group">
                         <label for="password">Contraseña:</label>

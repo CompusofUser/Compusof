@@ -1,10 +1,11 @@
+--Codigo para crear la tabla de usuarios la cual almacenara las credenciales de c/u
 create table usuarios(
 		idUsuario int auto_increment ,
 		nombre varchar (25) not null,
 		apellidos varchar (25) not null,
 		email varchar(50) not null,
 		numeroTelefono varchar(10) not null,
-		password vachar(255),
+		password varchar(255),
 		fechaNac date,
 		genero enum ('hombre','mujer'),
         creadoEn datetime default current_timestamp,
