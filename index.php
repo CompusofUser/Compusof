@@ -1,6 +1,6 @@
 
 <?php
-require_once '..\validacion\auth.php';
+require_once '../compusof/view/usuario/auth.php';
 $isLogin = true;
 $message = '';
 
@@ -24,38 +24,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="..\css\estilosSesion.css">
-    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="..\compusof\view\css\estilosSesion.css">
+    <link rel="shortcut icon" href="..\compusof\view\img\favicon.ico" type="image/x-icon">
     <title>Inicio de Sesion - Compusof</title>
 </head>
 <body>
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <img src= "..\img\logoCompusof.jpg" alt="Compusof" class="logo">
+                <img src= "..\compusof\view\img\logoCompusof.jpg" alt="Compusof" class="logo">
                 <h2>Login</h2>
             </div>
             <div class="card-content">
-                <form method="POST">
+                <form method="POST" action="..\compusof\controller\usuarioSesion.php">
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" pattern="[a-zA-Z0-9._%+-]+@compusof\.mx" placeholder="usuario@compusof.mx" required>
+                        <input type="email" id="email" pattern="[a-zA-Z0-9._%+-]+@compusof\.mx" placeholder="usuario@compusof.mx" required name="email">
                     </div>
                     <div class="form-group">
                         <label for="password">Contraseña:</label>
                         <input type="password" id="password" name="password" required>
                     </div>
                     <div class="card-footer">
-                <a href= "recuperarCuenta.php" class="switch-form">¿Olvidaste tu contraseña? </a>
+                <a href= "..\compusof\view\usuario\recuperarCuenta.php" class="switch-form">¿Olvidaste tu contraseña? </a>
             </div>
                     <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
                 </form>
             </div>
             <div class="card-footer">
-                <a href= "registroCuenta.php" class="switch-form">¿No tienes cuenta? Regístrate</a>
+                <a href= "..\compusof\view\usuario\registroCuenta.php" class="switch-form">¿No tienes cuenta? Regístrate</a>
                 <div class="microsoft-login">
                     <p>Puedes ingresar con tu cuenta de</p>
-                    <img src= "..\img\logoMicrosoft.png" alt="Microsoft" class="microsoft-logo">
+                    <img src= "..\compusof\view\img\logoMicrosoft.png" alt="Microsoft" class="microsoft-logo">
                 </div>
             </div>
         </div>
