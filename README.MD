@@ -19,3 +19,23 @@ Antes que nada debemos tomar en cuenta ciertos requerimientos para ejectuarlo de
 ![alt text](view/imgREADME/cmd.png)
 - 2- Escribir `git clone https://github.com/CompusofUser/Compusof.git`
 - 3- Listo
+## Ejecucion del Sistema Web 
+- 1- Ingresar a cualquier navegador y colocar en la barra `localhost/compusof/`
+![alt text](view/imgREADME/ejecucion.png)
+
+## Estructura del proyecto 
+- `model` contiene la logica de acceso a base de datos.
+- `view` contiene lo que el usuario ve, los datos de salida.
+- `controller` contiene la logica que manipula los datos.
+
+## Enlaces utiles
+- Descarga de entrono ->[xampp.com/descargar](https://www.apachefriends.org/es/index.html)
+- Comunidad Apache -> [apache.com/friends](https://www.apachefriends.org/es/community.html)
+- Dependecia cheackin -> [composer.com/docs](https://getcomposer.org/)
+
+## Detalle de ejecución 
+
+- Xampp 8.2.12
+- Visual Studio Code 1.94
+- Composer 2.8.1
+Windows 10 10.0
