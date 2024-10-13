@@ -38,4 +38,4 @@ Antes que nada debemos tomar en cuenta ciertos requerimientos para ejectuarlo de
 - Xampp 8.2.12
 - Visual Studio Code 1.94
 - Composer 2.8.1
-Windows 10 10.0
+- Windows 10 10.0
