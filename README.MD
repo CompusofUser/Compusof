@@ -14,4 +14,8 @@ Antes que nada debemos tomar en cuenta ciertos requerimientos para ejectuarlo de
 ![alt text](<view/imgREADME/image copy 2.png>)
 - 5- Crear tablas en la base de datos, en la carpeta `compusof/model/tables.sql` copiar las inserciones y pegarlo en el apartado de **SQL** y presionar `continuar`.
 ![alt text](<view/imgREADME/image copy 3.png>)
-### Clonar proyecto 
+## Clonar proyecto 
+- 1- Abrir el simbolo del sistema y colocar esta ruta `cd /xampp/htdocs`->presionar **Enter**
+![alt text](view/imgREADME/cmd.png)
+- 2- Escribir `git clone https://github.com/CompusofUser/Compusof.git`
+- 3- Listo
