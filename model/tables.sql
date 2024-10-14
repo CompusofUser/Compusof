@@ -14,7 +14,7 @@ create table usuarios(
 	);
 
 	
--- Modify the existing usuarios table
+-- Modificar tabla usuarios
 ALTER TABLE usuarios
 ADD COLUMN two_factor_secret VARCHAR(32) NULL,
 ADD COLUMN two_factor_enabled BOOLEAN DEFAULT FALSE,
