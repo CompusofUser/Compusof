@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="password" id="password" name="password" required>
                     </div>
                     <div class="card-footer">
-                <a href= "..\compusof\view\usuario\recuperarCuenta.php" class="switch-form">¿Olvidaste tu contraseña? </a>
+                <a href= "..\compusof\view\usuario\usuarioCorreo\solicitar_recuperacion.html" class="switch-form">¿Olvidaste tu contraseña? </a>
             </div>
                     <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
                 </form>

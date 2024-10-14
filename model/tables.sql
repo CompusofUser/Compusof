@@ -12,3 +12,18 @@ create table usuarios(
         actualizadoEn datetime default current_timestamp on update current_timestamp,
         constraint pk_idUsuario primary key (idUsuario)
 	);
+
+	
+-- Modify the existing usuarios table
+ALTER TABLE usuarios
+ADD COLUMN two_factor_secret VARCHAR(32) NULL,
+ADD COLUMN two_factor_enabled BOOLEAN DEFAULT FALSE,
+ADD COLUMN reset_token VARCHAR(64) NULL,
+ADD COLUMN reset_token_expires DATETIME NULL;
+
+ALTER TABLE usuarios ADD COLUMN extension VARCHAR(5) NULL;
+
+$dbname ="Compusof";
+$dbuser="root";
+$dbpasword="";
+$dbhost="localhost";

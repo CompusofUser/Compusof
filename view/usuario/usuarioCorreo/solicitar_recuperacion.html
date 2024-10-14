@@ -4,25 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solicitar Recuperación de Contraseña - Compusof</title>
-    <link rel="stylesheet" href="estiloLR.css">
+    <link rel="shortcut icon" href="..\img\favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="\Compusof\view\css\estilosSesion.css">
 </head>
 <body>
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <img src="logo.jpg" alt="Compusof" class="logo">
+                <img src="..\img\logoCompusof.jpg" alt="Compusof" class="logo">
                 <h2>Solicitar Recuperación de Contraseña</h2>
             </div>
             <div class="card-content">
-                <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                <form method="POST" action="procesar_recuperacion.php">
                     <div class="form-group">
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" placeholder="usuario@compusof.mx" required pattern="[a-zA-Z0-9._%+-]+@compusof\.mx$">
-                    </div>
-                    <div class="form-group">
-                        <label for="captcha">CAPTCHA:</label>
-                        <input type="text" id="captcha" name="captcha" required>
-                        <img src="generate_captcha.php" alt="CAPTCHA" class="captcha-image">
                     </div>
                     <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
                 </form>
