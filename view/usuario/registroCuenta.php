@@ -46,8 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h2>Crea una cuenta</h2>
             </div>
             <div class="card-content">
-                <form method="POST" id="registrationForm" action="/compusof/controller/UsuarioInsert.php">
-                
+                <form method="POST" id="registrationForm" action="/Compusof/Controller/registrar_usuario.php">  
                     <div class="form-row">
                         <div class="form-column">
                             <input type="text" id="nombre" name="nombre" placeholder="Nombre(s)" required>

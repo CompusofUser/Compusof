@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h2>Login</h2>
             </div>
             <div class="card-content">
-                <form method="POST" action="..\compusof\controller\usuarioSesion.php">
+                <form method="POST" action="..\compusof\controller\iniciar_sesion.php">
                     <div class="form-group">
                         <label for="email">Email:</label>
                         <input type="email" id="email" pattern="[a-zA-Z0-9._%+-]+@compusof\.mx" placeholder="usuario@compusof.mx" required name="email">
@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="password" id="password" name="password" required>
                     </div>
                     <div class="card-footer">
-                <a href= "..\compusof\view\usuario\usuarioCorreo\solicitar_recuperacion.html" class="switch-form">¿Olvidaste tu contraseña? </a>
+                <a href= "..\compusof\view\usuario\solicitar_recuperacion.html" class="switch-form">¿Olvidaste tu contraseña? </a>
             </div>
                     <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
                 </form>

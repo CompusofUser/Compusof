@@ -8,7 +8,7 @@ Antes que nada debemos tomar en cuenta ciertos requerimientos para ejectuarlo de
   los cuales nos ayudaran a tener el servidor para su visualizacion y un Gestor de base de datos (phpmyadmin)
 
   ![alt text](view/imgREADME/image.png)
-- 3- El usuarios de phpmyadmin debe ser `root` y sin contraseña; para verificarlo debemos colocar `localhost/phpmyadmin/` en nuestro navegador.
+- 3- El usuario de phpmyadmin debe ser `root` y sin contraseña; para verificarlo debemos colocar `localhost/phpmyadmin/` en nuestro navegador.
   ![alt text](<view/imgREADME/image copy.png>)
 - 4- Crear una base de datos presionando el boton `Nueva` -> teclar **Compusof** ->`Crear`.
 ![alt text](<view/imgREADME/image copy 2.png>)

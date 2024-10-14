@@ -15,7 +15,7 @@
                 <h2>Restablecer Contraseña</h2>
             </div>
             <div class="card-content">
-                <form method="POST" action="procesar_reset.php">
+                <form method="POST" action="\Compusof\controller\procesar_reset.php">
                     <input type="hidden" name="token" value="<?php echo $_GET['token']; ?>">
                     <div class="form-group">
                         <label for="new_password">Nueva Contraseña:</label>
