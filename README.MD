@@ -1,4 +1,4 @@
-# Sistema WEB para Gestion de Tickets e IDC con PHP, JS y PYTHON
+# Sistema WEB para Gestion de Tickets e IDC con PHP y JS
 - Este proyecto se realiza para el area de servicio en la empresa COMPUSOF MÉXICO y asi poder 
   aprovisionar de caracteristicas faltantes al sistema que tienen en funcionamiento en dicha area.
 ## Requerimientos antes de poder ejecutar
