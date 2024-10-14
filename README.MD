@@ -31,11 +31,9 @@ Antes que nada debemos tomar en cuenta ciertos requerimientos para ejectuarlo de
 ## Enlaces utiles
 - Descarga de entrono ->[xampp.com/descargar](https://www.apachefriends.org/es/index.html)
 - Comunidad Apache -> [apache.com/friends](https://www.apachefriends.org/es/community.html)
-- Dependecia check in -> [composer.com/docs](https://getcomposer.org/)
 
 ## Detalle de ejecución 
 
 - Xampp 8.2.12
 - Visual Studio Code 1.94
-- Composer 2.8.1
 - Windows 10 10.0
