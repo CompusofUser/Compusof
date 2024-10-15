@@ -22,7 +22,7 @@ ADD COLUMN reset_token VARCHAR(64) NULL,
 ADD COLUMN reset_token_expires DATETIME NULL;
 
 ALTER TABLE usuarios ADD COLUMN extension VARCHAR(5) NULL;
-
+--no copiar en la base de datos
 $dbname ="Compusof";
 $dbuser="root";
 $dbpasword="";

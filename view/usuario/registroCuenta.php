@@ -36,7 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="..\css\estilosSesion.css">
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+<<<<<<< HEAD
     <script src="/funcionesJSON/registro_validacion.js"></script>
+=======
+    <script src="..\js\validar_passwordVentana.js"></script>
+>>>>>>> add7af0fc4df0d2d19b9d3f69d6104036ec8e0c4
     <title>Crear cuenta - Compusof</title>
 
 </head>
@@ -102,7 +106,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </form>
             </div>
             <div class="card-footer">
+<<<<<<< HEAD
                 <a href= "../index.php" class="switch-form">¿Ya tienes cuenta? Inicia sesión</a>
+=======
+                <a href= "sesion.php" class="switch-form">¿Ya tienes cuenta? Inicia sesión</a>
+>>>>>>> add7af0fc4df0d2d19b9d3f69d6104036ec8e0c4
             </div>
         </div>
     </div>
@@ -116,7 +124,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php elseif ($message): ?>
         <div class="message success"><?php echo htmlspecialchars($message); ?></div>
     <?php endif; ?>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> add7af0fc4df0d2d19b9d3f69d6104036ec8e0c4
 </body>
 </html>
