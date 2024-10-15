@@ -1,9 +1,5 @@
 <?php
 
-
-$message = '';
-$messageClass = '';
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $new_password = $_POST['new_password'] ?? '';
     $confirm_password = $_POST['confirm_password'] ?? '';
@@ -16,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $errors = [];
 
-    if (empty($new_password) || empty($confirm_password)) {
+    if (empty($new_password) || empty($cconfirm_password)) {
         $errors[] = "Por favor, complete todos los campos.";
     }
     if ($new_password !== $confirm_password) {
@@ -40,9 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-
-
 ?>
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -52,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Restablecer Contraseña - Compusof</title>
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/estilosSesion.css">
-<<<<<<< HEAD
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         .password-requirements-popup {
             display: none;
@@ -82,10 +80,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             cursor: pointer;
             user-select: none;
         }
+        .password-strength, .password-match {
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
     </style>
-=======
-    <script src="..\js\validar_password.js"></script>
->>>>>>> add7af0fc4df0d2d19b9d3f69d6104036ec8e0c4
 </head>
 <body>
     <div class="container">
@@ -95,27 +94,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h2>Restablecer Contraseña</h2>
             </div>
             <div class="card-content">
-<<<<<<< HEAD
                 <form method="POST" action="\Compusof\controller\procesar_reset.php" id="resetPasswordForm">
-=======
-                <form method="POST" action="\Compusof\controller\procesar_reset.php" onsubmit="validatePasswords(event)">
->>>>>>> add7af0fc4df0d2d19b9d3f69d6104036ec8e0c4
                     <input type="hidden" name="token" value="<?php echo $_GET['token']; ?>">
                     <div class="form-group password-input-container">
                         <label for="new_password">Nueva Contraseña:</label>
                         <input type="password" id="new_password" name="new_password" required>
                         <span class="password-toggle" onclick="togglePassword('new_password')">👁️</span>
+                        <div class="password-strength"></div>
                     </div>
                     <div class="form-group password-input-container">
                         <label for="confirm_password">Confirmar Contraseña:</label>
                         <input type="password" id="confirm_password" name="confirm_password" required>
                         <span class="password-toggle" onclick="togglePassword('confirm_password')">👁️</span>
+                        <div class="password-match"></div>
                     </div>
-
 
                     <div class="form-group">
                         <div class="g-recaptcha" data-sitekey="6LeMZ2EqAAAAAMETCm1sxZUhRWHGuCp_rUeSaOBP"></div>
                     </div>
+
 
                     <button type="submit" class="btn btn-primary">Restablecer Contraseña</button>
                 </form>
@@ -123,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
     <div id="passwordRequirementsPopup" class="password-requirements-popup"></div>
-    <script src="../js/password_validator.js"></script>
+    <script src="../js/password_validator2.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             initializePasswordRequirements('new_password', 'confirm_password', 'passwordRequirementsPopup');
