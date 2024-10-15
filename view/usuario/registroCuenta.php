@@ -1,18 +1,17 @@
 <?php
 require_once 'auth.php';
-
 $isLogin = false;
 $message = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['nombre'] ?? '';
     $lastname = $_POST['apellidos'] ?? '';
-    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
     $confirmPassword = $_POST['password_verified_at'] ?? '';
     $gender = $_POST['genero'] ?? '';
     $birthDate = $_POST['fechaNac'] ?? '';
-    $agreeTerms = isset($_POST['agree_terms']);
+    $agreeTerms = isset($_POST['terminos_verified_at']);
 
     if (empty($name) || empty($lastname) || empty($email) || empty($password) || empty($confirmPassword) || empty($gender) || empty($birthDate)) {
         $message = "Por favor, complete todos los campos.";
@@ -24,7 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message = "Debe aceptar los términos de uso y la política de privacidad.";
     } else {
         $message = "Intento de registro con email válido";
-
     }
 }
 ?>
@@ -36,9 +34,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="..\css\estilosSesion.css">
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
-    <script src="..\js\validar_passwordVentana.js"></script>
     <title>Crear cuenta - Compusof</title>
-
+    <style>
+        .password-requirements-popup {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .password-requirements-popup div {
+            margin-bottom: 5px;
+            color: #dc3545;
+        }
+        .password-requirements-popup div.met {
+            color: #28a745;
+        }
+        .password-input-container {
+            position: relative;
+        }
+        .password-toggle {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            user-select: none;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -63,20 +89,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="form-group">
                         <input type="tel" id="numeroTelefono" name="numeroTelefono" placeholder="telefono" required maxlength="10">
                     </div>
-                   
-                    <div class="password-input-container">
+                    <div class="form-group password-input-container">
                         <input type="password" id="password" name="password" placeholder="Contraseña nueva" required maxlength="30">
                         <span class="password-toggle" onclick="togglePassword('password')">👁️</span>
-                        <div id="passwordRequirementsPopup" class="password-requirements-popup" style="display: none;"></div>
+                        <div class="password-strength"></div>
                     </div>
-
-                    
-                    <div class="password-input-container">
+                    <div class="form-group password-input-container">
                         <input type="password" id="password_verified_at" name="password_verified_at" placeholder="Confirmar contraseña" required>
                         <span class="password-toggle" onclick="togglePassword('password_verified_at')">👁️</span>
+                        <div class="password-match"></div>
                     </div>
-
-
                     <div class="form-row">
                         <div class="form-column">
                             <label for="birth_date">Fecha de nacimiento</label>
@@ -96,34 +118,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                     <div class="form-group checkbox">
                         <input type="checkbox" id="terminos_verified_at" name="terminos_verified_at" required>
-                        <label for="agree_terms">Acepto los <a href="https://compusof-mxico.pandape.computrabajo.com/Privacy">Términos de Uso</a> y la <a href="https://compusof-mxico.pandape.computrabajo.com/Privacy">Política de Privacidad</a></label>
+                        <label for="terminos_verified_at">Acepto los <a href="https://compusof-mxico.pandape.computrabajo.com/Privacy">Términos de Uso</a> y la <a href="https://compusof-mxico.pandape.computrabajo.com/Privacy">Política de Privacidad</a></label>
                     </div>
                     <button type="submit" class="btn btn-primary">Registrarte</button>
                 </form>
             </div>
             <div class="card-footer">
-<<<<<<< HEAD
-                <a href= "../index.php" class="switch-form">¿Ya tienes cuenta? Inicia sesión</a>
-=======
                 <a href= "sesion.php" class="switch-form">¿Ya tienes cuenta? Inicia sesión</a>
->>>>>>> add7af0fc4df0d2d19b9d3f69d6104036ec8e0c4
             </div>
         </div>
     </div>
-    
-    <?php if (!empty($errors)): ?>
-        <div class="message error">
-            <?php foreach ($errors as $error): ?>
-                <p><?php echo htmlspecialchars($error); ?></p>
-            <?php endforeach; ?>
-        </div>
-    <?php elseif ($message): ?>
-        <div class="message success"><?php echo htmlspecialchars($message); ?></div>
+    <div id="passwordRequirementsPopup" class="password-requirements-popup"></div>
+    <?php if ($message): ?>
+        <div class="message"><?php echo htmlspecialchars($message); ?></div>
     <?php endif; ?>
-<<<<<<< HEAD
-
-
-=======
->>>>>>> add7af0fc4df0d2d19b9d3f69d6104036ec8e0c4
+    <script src="..\js\password_validator1.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initializePasswordRequirements('password', 'password_verified_at', 'passwordRequirementsPopup');
+        });
+    </script>
 </body>
 </html>
