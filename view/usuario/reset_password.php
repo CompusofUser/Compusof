@@ -23,13 +23,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (empty($errors)) {
-        // Here you would typically update the user's password in the database
-        // For this example, we'll just show a success message
+       
         $message = "Cambio de contraseña correcto.";
         $messageClass = "alert-success";
-        // Redirect to dashboard after successful password change
-        // header("Location: dashboard.php");
-        // exit;
     } else {
         $message = implode("<br>", $errors);
         $messageClass = "alert-danger";
