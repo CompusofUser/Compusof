@@ -4,46 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cargando - Compusof</title>
-    <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(to bottom, #ffffff,#4a90e2);
-            font-family: Arial, sans-serif;
-        }
-        .loader {
-            width: 100px;
-            height: 100px;
-            position: relative;
-            animation: rotate 2s linear infinite;
-            margin-bottom: 20px;
-        }
-        .loader img {
-            width: 100%;
-            height: 100%;
-        }
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .progress-bar {
-            width: 200px;
-            height: 10px;
-            background-color: rgba(255, 255, 255, 0.3);
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        .progress {
-            width: 0%;
-            height: 100%;
-            background-color: #ffffff;
-            transition: width 2s linear;
-        }
-    </style>
+   <link rel="stylesheet" href="\Compusof\view\css\animacionCarga.css">
 </head>
 <body>
     <div class="loader">
