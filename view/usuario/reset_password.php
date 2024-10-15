@@ -27,13 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (empty($errors)) {
-        // Here you would typically update the user's password in the database
-        // For this example, we'll just show a success message
+       
         $message = "Cambio de contraseña correcto.";
         $messageClass = "alert-success";
-        // Redirect to dashboard after successful password change
-        // header("Location: dashboard.php");
-        // exit;
     } else {
         $message = implode("<br>", $errors);
         $messageClass = "alert-danger";
@@ -52,40 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Restablecer Contraseña - Compusof</title>
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/estilosSesion.css">
-<<<<<<< HEAD
-    <style>
-        .password-requirements-popup {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            padding: 10px;
-            border-radius: 4px;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        .password-requirements-popup div {
-            margin-bottom: 5px;
-            color: #dc3545;
-        }
-        .password-requirements-popup div.met {
-            color: #28a745;
-        }
-        .password-input-container {
-            position: relative;
-        }
-        .password-toggle {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            user-select: none;
-        }
-    </style>
-=======
     <script src="..\js\validar_password.js"></script>
->>>>>>> add7af0fc4df0d2d19b9d3f69d6104036ec8e0c4
 </head>
 <body>
     <div class="container">
@@ -95,11 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h2>Restablecer Contraseña</h2>
             </div>
             <div class="card-content">
-<<<<<<< HEAD
-                <form method="POST" action="\Compusof\controller\procesar_reset.php" id="resetPasswordForm">
-=======
                 <form method="POST" action="\Compusof\controller\procesar_reset.php" onsubmit="validatePasswords(event)">
->>>>>>> add7af0fc4df0d2d19b9d3f69d6104036ec8e0c4
                     <input type="hidden" name="token" value="<?php echo $_GET['token']; ?>">
                     <div class="form-group password-input-container">
                         <label for="new_password">Nueva Contraseña:</label>
@@ -122,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </div>
-    <div id="passwordRequirementsPopup" class="password-requirements-popup"></div>
+    
     <script src="../js/password_validator.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
