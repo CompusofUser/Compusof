@@ -1,6 +1,7 @@
 
 <?php
 require_once '../compusof/view/usuario/auth.php';
+require_once '../compusof/funcionesPHP/functions.php';
 $isLogin = true;
 $message = '';
 

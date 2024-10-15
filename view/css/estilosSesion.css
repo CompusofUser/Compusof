@@ -175,25 +175,53 @@ input[type="tel"] {
     color: #28a745;
 }
 .password-requirements-popup {
-    display: none;
     position: absolute;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-radius: 4px;
     z-index: 1000;
-    max-width: 300px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
-.password-requirements-popup p {
-    margin: 5px 0;
-    font-size: 0.9em;
-}
-.requirement {
+
+.password-requirements-popup div {
+    margin-bottom: 5px;
     color: #dc3545;
 }
-.requirement.met {
+
+.password-requirements-popup div.met {
     color: #28a745;
+}
+
+
+.password-input-container {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    user-select: none;
+}
+
+
+
+.password-strength {
+    height: 5px;
+    margin-top: 5px;
+    transition: all 0.3s ease;
+}
+
+.password-match {
+    margin-top: 5px;
+    font-size: 0.8em;
 }
 /* Estilos password   */
 
+.g-recaptcha {
+    align-items: center;
+    
+}

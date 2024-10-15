@@ -22,9 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-function validatePassword($password) {
-    return preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?!.*\s).{8,}$/', $password);
-}
 ?>
 
 <!DOCTYPE html>
@@ -81,54 +78,5 @@ function validatePassword($password) {
         <div class="message"><?php echo htmlspecialchars($message); ?></div>
     <?php endif; ?>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const newPassword = document.getElementById('new_password');
-        const confirmPassword = document.getElementById('confirm_password');
-        const submitBtn = document.getElementById('submitBtn');
-        const passwordRequirements = document.getElementById('passwordRequirements');
-        const requirements = {
-            letter: document.getElementById('req-letter'),
-            capital: document.getElementById('req-capital'),
-            number: document.getElementById('req-number'),
-            length: document.getElementById('req-length'),
-            space: document.getElementById('req-space'),
-            match: document.getElementById('req-match')
-        };
-
-        function validatePassword() {
-            const password = newPassword.value;
-            const confirm = confirmPassword.value;
-            //validación de carácteres para la contraseña
-            requirements.letter.classList.toggle('met', /[a-z]/.test(password));
-            requirements.capital.classList.toggle('met', /[A-Z]/.test(password));
-            requirements.number.classList.toggle('met', /\d/.test(password));
-            requirements.length.classList.toggle('met', password.length >= 8);
-            requirements.space.classList.toggle('met', !/\s/.test(password));
-            requirements.match.classList.toggle('met', password === confirm && password !== '');
-
-            const allRequirementsMet = Object.values(requirements).every(req => req.classList.contains('met'));
-            submitBtn.disabled = !allRequirementsMet;
-        }
-
-        newPassword.addEventListener('input', validatePassword);
-        confirmPassword.addEventListener('input', validatePassword);
-
-        newPassword.addEventListener('focus', function() {
-            passwordRequirements.style.display = 'block';
-        });
-
-        newPassword.addEventListener('blur', function() {
-            passwordRequirements.style.display = 'none';
-        });
-
-        // Posición de alerta con el botón
-        newPassword.addEventListener('focus', function() {
-            const rect = newPassword.getBoundingClientRect();
-            passwordRequirements.style.top = `${rect.bottom + window.scrollY}px`;
-            passwordRequirements.style.left = `${rect.left + window.scrollX}px`;
-        });
-    });
-    </script>
 </body>
 </html>

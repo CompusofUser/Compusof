@@ -5,8 +5,9 @@ session_start();
 $isLogin = true; // Por defecto, mostrar el formulario de login
 $message = '';
 
+// Email validation function
 function validateEmail($email) {
-    return preg_match('/@compusof\.mx$/', $email);
+    return filter_var($email, FILTER_VALIDATE_EMAIL) && preg_match('/@compusof\.mx$/', $email);
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
