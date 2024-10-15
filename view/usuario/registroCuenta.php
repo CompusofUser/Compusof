@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </form>
             </div>
             <div class="card-footer">
-                <a href= "/compusof/index.php" class="switch-form">¿Ya tienes cuenta? Inicia sesión</a>
+                <a href= "sesion.php" class="switch-form">¿Ya tienes cuenta? Inicia sesión</a>
             </div>
         </div>
     </div>
