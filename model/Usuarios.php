@@ -98,7 +98,7 @@ class Usuarios extends Conexion {
                 "id" => $resultado['idUsuario']
             ));
             
-            return "Su contraseña ha sido restablecida con éxito. Puede iniciar sesión con su nueva contraseña.";
+            header('location:\Compusof\view\usuario\sesion.php');
         } else {
             return "El enlace de restablecimiento no es válido o ha expirado.";
         }

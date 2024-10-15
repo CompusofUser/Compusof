@@ -6,6 +6,7 @@
     <title>Restablecer Contraseña - Compusof</title>
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/estilosSesion.css">
+    <script src="..\js\validar_password.js"></script>
 </head>
 <body>
     <div class="container">
@@ -15,7 +16,7 @@
                 <h2>Restablecer Contraseña</h2>
             </div>
             <div class="card-content">
-                <form method="POST" action="\Compusof\controller\procesar_reset.php">
+                <form method="POST" action="\Compusof\controller\procesar_reset.php" onsubmit="validatePasswords(event)">
                     <input type="hidden" name="token" value="<?php echo $_GET['token']; ?>">
                     <div class="form-group">
                         <label for="new_password">Nueva Contraseña:</label>
