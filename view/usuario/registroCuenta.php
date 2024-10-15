@@ -1,12 +1,13 @@
 <?php
 require_once 'auth.php';
+require_once 'C:\xampp\htdocs\Compusof\funcionesPHP\functions.php';
 $isLogin = false;
 $message = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['nombre'] ?? '';
     $lastname = $_POST['apellidos'] ?? '';
-    $email = $_POST['email'] ?? '';
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $password = $_POST['password'] ?? '';
     $confirmPassword = $_POST['password_verified_at'] ?? '';
     $gender = $_POST['genero'] ?? '';
@@ -35,7 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="..\css\estilosSesion.css">
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+<<<<<<< HEAD
+    <script src="/funcionesJSON/registro_validacion.js"></script>
+=======
     <script src="..\js\validar_passwordVentana.js"></script>
+>>>>>>> add7af0fc4df0d2d19b9d3f69d6104036ec8e0c4
     <title>Crear cuenta - Compusof</title>
 
 </head>
@@ -62,14 +67,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="form-group">
                         <input type="tel" id="numeroTelefono" name="numeroTelefono" placeholder="telefono" required maxlength="10">
                     </div>
-                    <div class="form-group">
+                   
+                    <div class="password-input-container">
                         <input type="password" id="password" name="password" placeholder="Contraseña nueva" required maxlength="30">
-                        <div class="password-strength"></div>
+                        <span class="password-toggle" onclick="togglePassword('password')">👁️</span>
+                        <div id="passwordRequirementsPopup" class="password-requirements-popup" style="display: none;"></div>
                     </div>
-                    <div class="form-group">
+
+                    
+                    <div class="password-input-container">
                         <input type="password" id="password_verified_at" name="password_verified_at" placeholder="Confirmar contraseña" required>
-                        <div class="password-match"></div>
+                        <span class="password-toggle" onclick="togglePassword('password_verified_at')">👁️</span>
                     </div>
+
+
                     <div class="form-row">
                         <div class="form-column">
                             <label for="birth_date">Fecha de nacimiento</label>
@@ -95,12 +106,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </form>
             </div>
             <div class="card-footer">
+<<<<<<< HEAD
+                <a href= "../index.php" class="switch-form">¿Ya tienes cuenta? Inicia sesión</a>
+=======
                 <a href= "sesion.php" class="switch-form">¿Ya tienes cuenta? Inicia sesión</a>
+>>>>>>> add7af0fc4df0d2d19b9d3f69d6104036ec8e0c4
             </div>
         </div>
     </div>
-    <?php if ($message): ?>
-        <div class="message"><?php echo htmlspecialchars($message); ?></div>
+    
+    <?php if (!empty($errors)): ?>
+        <div class="message error">
+            <?php foreach ($errors as $error): ?>
+                <p><?php echo htmlspecialchars($error); ?></p>
+            <?php endforeach; ?>
+        </div>
+    <?php elseif ($message): ?>
+        <div class="message success"><?php echo htmlspecialchars($message); ?></div>
     <?php endif; ?>
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> add7af0fc4df0d2d19b9d3f69d6104036ec8e0c4
 </body>
 </html>
