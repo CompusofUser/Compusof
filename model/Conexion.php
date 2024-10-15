@@ -5,7 +5,7 @@ class Conexion {
     public function __construct() {
         try {
            
-            $this->conexion = new PDO("mysql:host=127.0.0.1; dbname=Compusof", "root", "");
+            $this->conexion = new PDO("mysql:host=localhost; dbname=compusof", "root", "");
             $this->conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);       
         } catch (Exception $e) {
             echo "Error: " . $e->getMessage();
