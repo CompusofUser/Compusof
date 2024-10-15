@@ -1,11 +1,5 @@
-
 <?php
-<<<<<<< HEAD:index.php
-require_once '../compusof/view/usuario/auth.php';
-require_once '../compusof/funcionesPHP/functions.php';
-=======
 require_once 'auth.php';
->>>>>>> add7af0fc4df0d2d19b9d3f69d6104036ec8e0c4:view/usuario/sesion.php
 $isLogin = true;
 $message = '';
 

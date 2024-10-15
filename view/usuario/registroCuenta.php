@@ -1,6 +1,6 @@
 <?php
 require_once 'auth.php';
-require_once 'C:\xampp\htdocs\Compusof\funcionesPHP\functions.php';
+
 $isLogin = false;
 $message = '';
 
@@ -36,11 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="..\css\estilosSesion.css">
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
-<<<<<<< HEAD
-    <script src="/funcionesJSON/registro_validacion.js"></script>
-=======
     <script src="..\js\validar_passwordVentana.js"></script>
->>>>>>> add7af0fc4df0d2d19b9d3f69d6104036ec8e0c4
     <title>Crear cuenta - Compusof</title>
 
 </head>
