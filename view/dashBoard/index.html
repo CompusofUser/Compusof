@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Gestión de Tickets</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100">
+    <div class="flex flex-col h-screen">
+        <!-- Header -->
+        <header class="bg-gray-800 text-white p-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <button id="menuToggle" class="mr-4">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    <img src="https://via.placeholder.com/40" alt="Logo de la empresa" class="w-8 h-8">
+                </div>
+            </div>
+            <div class="flex items-center">
+                <span class="mr-2">Usuario</span>
+                <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+            </div>
+        </header>
+
+        <div class="flex flex-1 overflow-hidden">
+            <!-- Sidebar -->
+            <aside id="sidebar" class="bg-gray-800 text-white w-64 space-y-6 py-7 px-2 fixed inset-y-0 left-0 transform -translate-x-full transition duration-200 ease-in-out z-30 overflow-y-auto">
+                <nav>
+                    <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700" onclick="showSection('tickets')">Tickets</a>
+                    <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700" onclick="showSection('engineers')">Ingenieros</a>
+                    <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700" onclick="showSection('profile')">Perfil</a>
+                </nav>
+            </aside>
+            <div id="sidebarOverlay" class="fixed inset-0 bg-gray-900 opacity-50 z-20 hidden" onclick="toggleSidebar()"></div>
+
+            <!-- Main Content -->
+            <main class="flex-1 p-8 overflow-auto">
+                <h1 class="text-3xl font-bold mb-6">Dashboard de Gestión</h1>
+
+                <!-- Tickets Section -->
+                <section id="tickets" class="mb-8">
+                    <h2 class="text-2xl font-semibold mb-4">Gestión de Tickets</h2>
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded mb-4" onclick="showModal('ticketModal')">Agregar Ticket</button>
+                    <table class="w-full bg-white shadow-md rounded">
+                        <thead>
+                            <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                                <th class="py-3 px-6 text-left">ID</th>
+                                <th class="py-3 px-6 text-left">Descripción</th>
+                                <th class="py-3 px-6 text-left">Estado</th>
+                                <th class="py-3 px-6 text-left">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ticketsTableBody">
+                            <!-- Tickets will be inserted here by JavaScript -->
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Engineers Section -->
+                <section id="engineers" class="mb-8 hidden">
+                    <h2 class="text-2xl font-semibold mb-4">Gestión de Ingenieros</h2>
+                    <button class="bg-green-500 text-white px-4 py-2 rounded mb-4" onclick="showModal('engineerModal')">Agregar Ingeniero</button>
+                    <table class="w-full bg-white shadow-md rounded">
+                        <thead>
+                            <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                                <th class="py-3 px-6 text-left">ID</th>
+                                <th class="py-3 px-6 text-left">Nombre</th>
+                                <th class="py-3 px-6 text-left">Especialidad</th>
+                                <th class="py-3 px-6 text-left">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="engineersTableBody">
+                            <!-- Engineers will be inserted here by JavaScript -->
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Profile Section -->
+                <section id="profile" class="mb-8 hidden">
+                    <h2 class="text-2xl font-semibold mb-4">Perfil de Usuario</h2>
+                    <div class="bg-white shadow-md rounded p-6">
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                                Nombre de Usuario
+                            </label>
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Nombre de Usuario">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                                Correo Electrónico
+                            </label>
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="correo@ejemplo.com">
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                                Actualizar Perfil
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- Ticket Modal -->
+        <div id="ticketModal" class="modal hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full">
+            <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+                <h3 class="text-lg font-semibold mb-4">Agregar/Editar Ticket</h3>
+                <form id="ticketForm">
+                    <input type="hidden" id="ticketId">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="ticketDescription">
+                            Descripción
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="ticketDescription" type="text" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="ticketStatus">
+                            Estado
+                        </label>
+                        <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="ticketStatus" required>
+                            <option value="Abierto">Abierto</option>
+                            <option value="En Progreso">En Progreso</option>
+                            <option value="Cerrado">Cerrado</option>
+                        </select>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                            Guardar
+                        </button>
+                        <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onclick="closeModal('ticketModal')">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Engineer Modal -->
+        <div id="engineerModal" class="modal hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full">
+            <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+                <h3 class="text-lg font-semibold mb-4">Agregar/Editar Ingeniero</h3>
+                <form id="engineerForm">
+                    <input type="hidden" id="engineerId">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="engineerName">
+                            Nombre
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="engineerName" type="text" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="engineerSpecialty">
+                            Especialidad
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="engineerSpecialty" type="text" required>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                            Guardar
+                        </button>
+                        <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onclick="closeModal('engineerModal')">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+        <script>
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    sidebar.classList.toggle('-translate-x-full');
+    overlay.classList.toggle('hidden');
+}
+
+document.getElementById('menuToggle').addEventListener('click', toggleSidebar);
+        </script>
+    </body>
+</html>

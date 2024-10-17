@@ -5,7 +5,7 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom, #ffffff,#4a90e2);
+    background: linear-gradient(to bottom, #ffffff,#8fc2e9);
     font-family: Arial, sans-serif;
 }
 .loader {
